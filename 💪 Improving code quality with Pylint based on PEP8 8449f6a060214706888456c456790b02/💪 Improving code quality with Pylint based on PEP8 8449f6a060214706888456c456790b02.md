@@ -38,7 +38,7 @@ makeSum(entry,sum)
 
 # 2. Pylint 분석 🔍
 
-![%F0%9F%92%AA%20Improving%20code%20quality%20with%20Pylint%20based%20on%20PEP8%208449f6a060214706888456c456790b02/ff.jpg](%F0%9F%92%AA%20Improving%20code%20quality%20with%20Pylint%20based%20on%20PEP8%208449f6a060214706888456c456790b02/ff.jpg)
+![ff](https://user-images.githubusercontent.com/33116818/119454994-233d2d80-bd74-11eb-8067-4edd76d12b18.jpg)
 
 - C0303 : 잘못된 공백
 - W0311 : 잘못된 들여쓰기
@@ -155,11 +155,11 @@ make_sum(entry, total)
 
 ## ✅ 개선된 코드 pylint 분석 결과
 
-![%F0%9F%92%AA%20Improving%20code%20quality%20with%20Pylint%20based%20on%20PEP8%208449f6a060214706888456c456790b02/result.jpg](%F0%9F%92%AA%20Improving%20code%20quality%20with%20Pylint%20based%20on%20PEP8%208449f6a060214706888456c456790b02/result.jpg)
+![result](https://user-images.githubusercontent.com/33116818/119454967-1c161f80-bd74-11eb-85f5-2a0b7112219d.jpg)
 
 ## ✅ 코드 비교
 
-![%F0%9F%92%AA%20Improving%20code%20quality%20with%20Pylint%20based%20on%20PEP8%208449f6a060214706888456c456790b02/Untitled.png](%F0%9F%92%AA%20Improving%20code%20quality%20with%20Pylint%20based%20on%20PEP8%208449f6a060214706888456c456790b02/Untitled.png)
+![Untitled](https://user-images.githubusercontent.com/33116818/119455011-259f8780-bd74-11eb-957e-88e988432fe6.png)
 
 ---
 
