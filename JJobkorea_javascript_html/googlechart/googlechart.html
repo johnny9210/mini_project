@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+    google.charts.load('current', {packages: ['corechart', 'bar']});
+    google.charts.setOnLoadCallback(drawBasic);
+    
+    function drawBasic() {
+    
+          var data = google.visualization.arrayToDataTable([
+           
+          ]);
+    
+          var options = {
+            title: '각 회사별 점수',
+            chartArea: {width: '70%'},
+            hAxis: {
+              title: '짭코리아',
+              minValue: 0
+            },
+            vAxis: {
+              title: '회사'
+            }
+          };
+    
+          var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+    
+          chart.draw(data, options);
+        }
+    </script>
+</head>
+<body>
+  <div id= 'chart_div'></div>
+
+  <script>
+    function score() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    data = this.responseText;
+                    data = JSON.parse(data);
+
+                    
+                }
+            };
+            xhttp.open("get", "score");    // http://ip:port/insert
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+            // empno=1&ename=재석&sal=10
+            queryString = "'';
+            console.log(queryString)
+            xhttp.send(queryString);
+        }
+  </script>
+</body>
+</html>
