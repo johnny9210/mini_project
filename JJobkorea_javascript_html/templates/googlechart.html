@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+
+    function chartall() {
+      const xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          data = this.responseText;
+          data = JSON.parse(data);
+          console.log(data);
+          console.log(typeof(data))
+  
+          tab = `[\n['Company', 'Score', { role: 'style' }],\n`;
+
+          // https://poiemaweb.com/es6-template-literals
+          let cname
+          let avg_score
+          let sal
+          for (no in data) {
+            cname = data[no].cname;
+            avg_score = parseFloat(data[no].avg_score);
+            color = data[no].color;
+            console.log(avg_score)
+
+            tab = tab + `[`;
+            tab = tab + `'${cname}'`;
+            tab = tab + `, `;
+            tab = tab + `${avg_score}`;
+            tab = tab + `,`;
+            tab = tab + `'${color}'`;
+            tab = tab + `], \n`;
+          }
+          tab = tab + `]`;
+          console.log(tab)
+
+
+          google.charts.load('current', { packages: ['corechart', 'bar'] });
+          google.charts.setOnLoadCallback(drawAxisTickColors1);
+          function drawAxisTickColors1() {
+
+            // tab = JSON.parse(tab);
+            tab = eval(tab);
+            console.log(typeof(tab));
+            var data = google.visualization.arrayToDataTable(tab);
+            console.log(tab);
+
+            var options = {
+              title: 'Blind Company Score',
+              focusTarget: 'category',
+              hAxis: {
+                title: 'Company',
+                textStyle: {
+                  fontSize: 11,
+                  color: '#053061',
+                  bold: true,
+                  italic: false
+                },
+                titleTextStyle: {
+                  fontSize: 11,
+                  color: '#053061',
+                  bold: true,
+                  italic: false
+                }
+              },
+              vAxis: {
+                title: 'score (scale of 1-5)',
+                maxValue: 5.0,
+                textStyle: {
+                  fontSize: 11,
+                  color: '#67001f',
+                  bold: false,
+                  italic: false
+                },
+                titleTextStyle: {
+                  fontSize: 11,
+                  color: '#67001f',
+                  bold: true,
+                  italic: false
+                }
+              }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+          }
+        };
+      };
+      xhttp.open("POST", "showchart");
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhttp.send();
+    }
+
+  </script>
+
+
+
+
+</head>
+
+<body onload="chartall()">
+  <div id='chart_div'>
+
+
+
+  </div>
+
+  <div id='chart_all'>
+
+
+  </div>
+
+
+</body>
+
+</html>

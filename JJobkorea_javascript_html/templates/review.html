@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Stylish&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>JJobkorea</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- 존 도우 메뉴 링크 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </script>
+    <style>
+        * {
+            font-family: 'Stylish', sans-serif;
+
+        }
+
+        .button {
+            display: inline-block;
+            border-radius: 4px;
+            background-color: #3399ff;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 23px;
+            padding: 20px;
+            width: 200px;
+            height: 60px;
+            transition: all 0.5s;
+            cursor: pointer;
+            /* margin: 5px; */
+
+        }
+
+        .button span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+
+        .button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+        .button:hover span {
+            padding-right: 25px;
+        }
+
+        .button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+
+        div.button1 {
+
+            margin: auto;
+
+            width: 20%;
+
+        }
+
+        body {
+            /* background-image: url('images/review.jpg'); */
+            background-size: cover;
+
+
+        }
+
+        .img {
+            width: 350px;
+            height: 300px;
+        }
+    </style>
+
+    <script>
+        function insertreview() {
+            let id = $('#id').val()
+            let cname = $('#cname').val()
+            let score = $('#score').val()
+            let review = $('#review').val()
+        }
+
+    </script>
+</head>
+
+<body>
+
+    
+
+    <form>
+        <!-- <img src="../static/images/review3.png" alt="" align='left' class="img" style="width: 240px;height: 104px;margin-left: 100px;"> -->
+        <div class="container">
+            <div>
+                <br>
+                <h1 style=font-size:60px; align='center'><img src="../static/images/review3.png" alt="" class="img"
+                        style="width: 120px;height: 48px;margin-right: 10px;">리뷰를 달아주세요!</h1>
+
+                <p style=font-size:30px; align='center'>자신이 다녔던 회사에 대해서 솔직한 리뷰를 작성해 보세요.</p>
+            </div>
+            <br>
+            <hr><br>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">아이디</span>
+                </div>
+                <input type="text" class="form-control" name="id" id="id">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <select id="cname" name="cname" id="cname" class="input-group-text" style="width: 1110px;"
+                        margin=auto; display=block; font-size="200px" ;>
+                        <option value="회사">회사</option>
+                        <option value="BankSalad">뱅크샐러드</option>
+                        <option value="Shinhan Bank">신한은행</option>
+                        <option value="Kakao Bank">카카오뱅크</option>
+                        <option value="Tesla">테슬라</option>
+                        <option value="Hyundai Motors">현대자동차</option>
+                        <option value="Kia Motors">기아자동차</option>
+                        <option value="Inbody">인바디</option>
+                        <option value="Seegene">씨젠</option>
+                        <option value="Vuno">vuno</option>
+                        <option value="ADT Caps">캡스</option>
+                        <option value="Ahn Lab">안랩</option>
+                        <option value="Secui">시큐아이</option>
+                        <option value="Naver">네이버</option>
+                        <option value="KaKao">카카오</option>
+                        <option value="Google Korea">구글코리아</option>
+                    </select>
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">점수</span>
+                </div>
+                <input type="number" class="form-control" name="score" id="score" min="1" max="5" step="1"
+                    placeholder="1~5까지 입력할 수 있습니다.">
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">리뷰</span>
+                </div>
+                <textarea class="form-control" id="review" cols="30" rows="5"
+                    placeholder="140자까지 입력할 수 있습니다."></textarea>
+            </div>
+
+            <div class="button1">
+                <button class="button" style="vertical-align:middle" onclick="insert();"><span>리뷰 등록</span></button>
+            </div>
+            <hr>
+            <!-- <button onclick="boardall()">리뷰보기</button> -->
+            <div class="button1">
+                <button class="button" onclick="boardall()"><span>리뷰 보기</span></button>
+                <table class='table'>
+                    <tbody id='demo'>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- <table class='table'>
+                <tbody id='demo'>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+
+                    </tr>
+                </tbody>
+            </table> -->
+            <br>
+            <hr><br>
+
+            <h4 align='center'><strong> 더 많은 회사정보를 알고 싶다면 &nbsp;<a
+                        href="https://www.jobkorea.co.kr/">잡코리아로가기!</strong></a></h4><br>
+
+        </div>
+    </form>
+
+    <script>
+        //등록
+        function insert() {
+            alert("등록함수개시");
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    data = this.responseText;
+                    data = JSON.parse(data);
+
+                    alert("게시가 완료되었습니다!");
+                }
+            };
+            xhttp.open("POST", "insert");    // http://ip:port/insert
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+            // empno=1&ename=재석&sal=10
+            queryString = "id=" + document.getElementById("id").value +
+                "&cname=" + document.getElementById("cname").value +
+                "&score=" + document.getElementById("score").value +
+                "&review=" + document.getElementById("review").value;
+            console.log(queryString)
+            xhttp.send(queryString);
+        };
+
+
+        // 테이블에 리뷰값 반환
+        function boardall() {
+            // alert("함수개시");
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    data = this.responseText;
+                    data = JSON.parse(data);
+                    console.log(data);
+                    alert("테이블 게시중");
+
+                    tab = `
+                <table border="1">
+                    <tr><th>아이디</th><th>회사</th><th>점수</th><th>급여</th></tr>`;
+
+                    // https://poiemaweb.com/es6-template-literals
+                    let cname
+                    let id
+                    let score
+                    let review
+                    for (no in data) {
+                        cname = data[no].cname;
+                        id = data[no].id;
+                        score = data[no].score;
+                        review = data[no].review;
+
+                        tab = tab + `<tr>
+                        <td>${id}</td>
+                        <td>${cname}</td>
+                        <td>${score}</td>
+                        <td>${review}</td>
+                    </tr>`;
+                    }
+                    tab = tab + `</table>`;
+                    document.getElementById("demo").innerHTML = tab;
+
+                };
+            };
+            xhttp.open("get", "insertboard");
+            xhttp.send();
+        }
+
+
+    </script>
+
+</body>
+
+</html>

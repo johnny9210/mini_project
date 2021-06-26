@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Stylish&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <style>
+        * {
+            font-family: "Raleway", sans-serif;
+
+        }
+
+        .button {
+            font-size: 20px;
+            padding: 20px 20px;
+            margin: auto;
+            display: block;
+        }
+    </style>
+
+    <script>
+        function insertreview() {
+            let id = $('#id').val()
+            let cname = $('#cname').val()
+            let score = $('#score').val()
+            let review = $('#review').val()
+        }
+        // function makeReview() {
+        //     let title = $('#title').val()
+        //     let author = $('#author').val()
+        //     let review = $('#bookReview').val()
+
+        //     $.ajax({
+        //         type: "POST",
+        //         url: "/review",
+        //         data: {title_give: title, author_give: author, review_give: review},
+        //         success: function (response) {
+        //             alert(response["msg"]);
+        //             window.location.reload();
+        //         }
+        //     })
+        // }
+
+        // function showReview() {
+        //     $.ajax({
+        //         type: "GET",
+        //         url: "/review",
+        //         data: {},
+        //         success: function (response) {
+        //             let reviews = response['all_reviews']
+        //             for (let i = 0; i < reviews.length; i++) {
+        //                 let title = reviews[i]['title']
+        //                 let author = reviews[i]['author']
+        //                 let review = reviews[i]['review']
+
+        //                 let temp_html = `<tr>
+        //                                     <td>${title}</td>
+        //                                     <td>${author}</td>
+        //                                     <td>${review}</td>
+        //                                     </tr>`
+        //                 $('#reviews-box').append(temp_html)
+        //             }
+        //         }
+        //     })
+        // }
+    </script>
+</head>
+
+<body align='center'>
+    <div class="w3-top">
+        <div class="w3-bar w3-red w3-card w3-left-align w3-large" style="opacity: 0.8">
+            <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red"
+                href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i
+                    class="fa fa-bars"></i></a>
+            <a href="/" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+            <a href="choice" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">직업찾기</a>
+            <a href="board" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">게시판</a>
+            <a href="contact" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">기업정보</a>
+            <a href="chart" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">차트</a>
+        </div>
+        <br><br><br>
+    </div>
+    <!-- action="action_page.php" -->
+    <form>
+        <br><br><br>
+        <div class="container" style="font-family: 'Stylish', sans-serif;"><br><br>
+            <!-- <h1 style=font-size:60px; align='center'>리뷰를 달아주세요!</h1> -->
+            <h1 style="font-size:60px;font-family: 'Stylish', sans-serif;" align='center'><img src="../static/images/review3.png" alt="" class="img"
+                    style="width: 120px;height: 48px;margin-right: 10px;">리뷰를 달아주세요!</h1>
+            <p style="font-size:30px;font-family: 'Stylish', sans-serif;" align='center'>자신이 다녔던 회사에 대해서 솔직한 리뷰를 작성해 보세요.</p>
+            <br>
+            <hr><br>
+
+            <label for="id"><b>아이디</b></label>&nbsp;&nbsp;
+            <input type="text" placeholder="아이디를 입력해주세요" name="id" id="id" required>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>회사</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select id="cname" name="cname">
+                <option value="회사">회사</option>
+                <option value="BankSalad">뱅크샐러드</option>
+                <option value="Shinhan Bank">신한은행</option>
+                <option value="Kakao Bank">카카오뱅크</option>
+                <option value="Tesla">테슬라</option>
+                <option value="Hyundai Motors">현대자동차</option>
+                <option value="Kia Motors">기아자동차</option>
+                <option value="Inbody">인바디</option>
+                <option value="Seegene">씨젠</option>
+                <option value="Vuno">vuno</option>
+                <option value="ADT Caps">캡스</option>
+                <option value="Ahn Lab">안랩</option>
+                <option value="Secui">시큐아이</option>
+                <option value="Naver">네이버</option>
+                <option value="KaKao">카카오</option>
+                <option value="Google Korea">구글코리아</option>
+            </select>
+            &nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label for="score"><b>점수</b></label>&nbsp;&nbsp;
+            <input type="number" min="1" max="5" placeholder="1-5까지 입력해주세요" name="score" id="score" required>
+            <hr><br>
+            <label for="review"><b>리뷰</b></label>
+            <input type="text" placeholder="리뷰를 입력해주세요" name="review" size=100 maxlength=100 id="review" required>
+            <button align='center' onclick="insert();">리뷰 달기</button>
+            <hr>
+            <button onclick="boardall()">리뷰보기</button>
+            <table class='table'>
+                <tbody id='demo'>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <hr><br>
+            <p align='center'>더 많은 회사정보를 알고 싶다면 &nbsp;<a href="https://www.jobkorea.co.kr/">잡코리아로가기!</a></p>
+
+        </div>
+    </form>
+
+
+    <script>
+        //등록
+        function insert() {
+            alert("등록함수개시");
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    data = this.responseText;
+                    data = JSON.parse(data);
+
+                    alert("게시가 완료되었습니다!");
+                }
+            };
+            xhttp.open("POST", "insert");    // http://ip:port/insert
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+            // empno=1&ename=재석&sal=10
+            queryString = "id=" + document.getElementById("id").value +
+                "&cname=" + document.getElementById("cname").value +
+                "&score=" + document.getElementById("score").value +
+                "&review=" + document.getElementById("review").value;
+            console.log(queryString)
+            xhttp.send(queryString);
+        };
+
+
+        // 테이블에 리뷰값 반환
+        function boardall() {
+            alert("함수개시");
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    data = this.responseText;
+                    data = JSON.parse(data);
+                    console.log(data);
+                    alert("테이블 게시중");
+
+                    tab = `
+                <table border="1">
+                    <tr><th>아이디</th><th>회사</th><th>점수</th><th>급여</th></tr>`;
+
+                    // https://poiemaweb.com/es6-template-literals
+                    let cname
+                    let id
+                    let score
+                    let review
+                    for (no in data) {
+                        cname = data[no].cname;
+                        id = data[no].id;
+                        score = data[no].score;
+                        review = data[no].review;
+
+                        tab = tab + `<tr>
+                        <td>${id}</td>
+                        <td>${cname}</td>
+                        <td>${score}</td>
+                        <td>${review}</td>
+                    </tr>`;
+                    }
+                    tab = tab + `</table>`;
+                    document.getElementById("demo").innerHTML = tab;
+
+                };
+            };
+            xhttp.open("get", "insertboard");
+            xhttp.send();
+        }
+
+
+    </script>
+
+</body>
+
+</html>

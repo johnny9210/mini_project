@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <style>
+        body,
+        h1,
+        h5 {
+            font-family: "Raleway", sans-serif
+        }
+
+
+
+        /* .bgimg {
+            background-image: url('/images/back.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: cover;
+        }
+
+        body {
+            background-image: url(images/back2.pngs);
+            background-color: #3399ff;
+            background-size: cover;
+         } */
+
+        .button {
+            display: inline-block;
+            border-radius: 4px;
+            background-color: #3399ff;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 23px;
+            padding: 20px;
+            width: 300px;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .button span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+
+        .button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+        .button:hover span {
+            padding-right: 25px;
+        }
+
+        .button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+
+
+        .checkbox input.checkbox1 {
+            font-size: 1em;
+            width: 1.5em;
+            height: 1.5em;
+            vertical-align: middle;
+        }
+
+        .checkbox input.checkbox1+label {
+            font-size: 1.125em;
+            vertical-align: middle;
+        }
+
+        /* .button {
+            background-color: white;
+            border: none;
+            color: black;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: auto;
+            display: block;
+            border: 2px solid #000e01; */
+
+        /* } */
+    </style>
+    <title>JJobkorea</title>
+
+
+    <script type="text/javascript">
+        // 오른쪽 배너 스크립트
+        var stmnLEFT = 10; // 오른쪽 여백 
+        var stmnGAP1 = 0; // 위쪽 여백 
+        var stmnGAP2 = 150; // 스크롤시 브라우저 위쪽과 떨어지는 거리 
+        var stmnBASE = 150; // 스크롤 시작위치 
+        var stmnActivateSpeed = 35; //스크롤을 인식하는 딜레이 (숫자가 클수록 느리게 인식)
+        var stmnScrollSpeed = 20; //스크롤 속도 (클수록 느림)
+        var stmnTimer;
+
+        function RefreshStaticMenu() {
+            var stmnStartPoint, stmnEndPoint;
+            stmnStartPoint = parseInt(document.getElementById('STATICMENU').style.top, 10);
+            stmnEndPoint = Math.max(document.documentElement.scrollTop, document.body.scrollTop) + stmnGAP2;
+            if (stmnEndPoint < stmnGAP1) stmnEndPoint = stmnGAP1;
+            if (stmnStartPoint != stmnEndPoint) {
+                stmnScrollAmount = Math.ceil(Math.abs(stmnEndPoint - stmnStartPoint) / 15);
+                document.getElementById('STATICMENU').style.top = parseInt(document.getElementById('STATICMENU').style.top, 10) + ((stmnEndPoint < stmnStartPoint) ? -stmnScrollAmount : stmnScrollAmount) + 'px';
+                stmnRefreshTimer = stmnScrollSpeed;
+            }
+            stmnTimer = setTimeout("RefreshStaticMenu();", stmnActivateSpeed);
+        }
+        function InitializeStaticMenu() {
+            document.getElementById('STATICMENU').style.right = stmnLEFT + 'px';  //처음에 오른쪽에 위치. left로 바꿔도.
+            document.getElementById('STATICMENU').style.top = document.body.scrollTop + stmnBASE + 'px';
+            RefreshStaticMenu();
+        }
+    </script>
+
+
+
+    <script>
+        // 체크되지않은 항목이 있다면 alert!!
+        function CheckForm(join) {
+
+            // console.log("Industry실행")
+            var isIndustryChk = false;
+            var arr_Industry = document.getElementsByName("Industry");
+            for (var i = 0; i < arr_Industry.length; i++) {
+                if (arr_Industry[i].checked == true) {
+                    isIndustryChk = true;
+                    break;
+                }
+            }
+
+            if (!isIndustryChk) {
+                alert("Industry의 종류를 한개 이상 선택해주세요.");
+                return false;
+            }
+
+            // console.log("Tech_Stack실행")
+            var isTechStackChk = false;
+            var arr_TechStack = document.getElementsByName("Tech_Stack");
+            for (var i = 0; i < arr_TechStack.length; i++) {
+                if (arr_TechStack[i].checked == true) {
+                    isTechStackChk = true;
+                    break;
+                }
+            }
+
+            if (!isTechStackChk) {
+                alert("Tech_Stack의 종류를 한개 이상 선택해주세요.");
+                return false;
+            }
+
+
+            // console.log("Salary실행")
+            var isSalaryChk = false;
+            var arr_Salary = document.getElementsByName("Salary");
+            for (var i = 0; i < arr_Salary.length; i++) {
+                if (arr_Salary[i].checked == true) {
+                    isSalaryChk = true;
+                    break;
+                }
+            }
+
+            if (!isSalaryChk) {
+                alert("Salary의 종류를 한개 이상 선택해주세요.");
+                return false;
+            }
+
+
+
+            // console.log("Company Size실행")
+            var isCompany_SizeChk = false;
+            var arr_Company_Size = document.getElementsByName("Company_Size");
+            for (var i = 0; i < arr_Company_Size.length; i++) {
+                if (arr_Company_Size[i].checked == true) {
+                    isCompany_SizeChk = true;
+                    break;
+                }
+            }
+
+            if (!isCompany_SizeChk) {
+                alert("Company Size 종류를 한개 이상 선택해주세요.");
+                return false;
+            }
+
+
+            // console.log("Hirecareer실행")
+            var isHirecareerChk = false;
+            var arr_Hirecareer = document.getElementsByName("Hirecareer");
+            for (var i = 0; i < arr_Hirecareer.length; i++) {
+                if (arr_Hirecareer[i].checked == true) {
+                    isHirecareerChk = true;
+                    break;
+                }
+            }
+
+            if (!isHirecareerChk) {
+                alert("Hirecareer 종류를 한개 이상 선택해주세요.");
+                return false;
+            }
+
+        }
+
+
+        // 체크된 value값 호출
+        function getIndustryValue() {
+            // 선택된 Industry목록 가져오기
+            const IndustryQuery = 'input[name="Industry"]:checked';
+            const SelectedIndustry = document.querySelectorAll(IndustryQuery);
+
+            // 선택된 Industry목록에서 value 찾기
+            let IndustryResult = '';
+            SelectedIndustry.forEach((el) => {
+                IndustryResult += el.value + '\n';
+            });
+            document.getElementById('IndustryResult').innerText = IndustryResult;
+        }
+
+
+        function getTechValue() {
+            // 선택된 Tech_Stack목록 가져오기
+            const TechQuery = 'input[name="Tech_Stack"]:checked';
+            const SelectedTech = document.querySelectorAll(TechQuery);
+
+            // 선택된 Tech_Stack목록에서 value 찾기
+            let TechResult = '';
+            SelectedTech.forEach((el) => {
+                TechResult += el.value + '\n';
+            });
+            document.getElementById('TechResult').innerText = TechResult;
+        }
+
+
+        function getSalaryValue() {
+            const SalaryQuery = 'input[name="Salary"]:checked';
+            const SelectedSalary = document.querySelectorAll(SalaryQuery);
+
+            // 선택된 목록에서 value 찾기
+            let SalaryResult = '';
+            SelectedSalary.forEach((el) => {
+                SalaryResult += el.value + ' thousand\n';
+            });
+            document.getElementById('SalaryResult').innerText = SalaryResult;
+        }
+
+
+        function getSizeValue() {
+            const SizeQuery = 'input[name="Company_Size"]:checked';
+            const SelectedSize = document.querySelectorAll(SizeQuery);
+
+            // 선택된 목록에서 value 찾기
+            let SizeResult = '';
+            SelectedSize.forEach((el) => {
+                SizeResult += el.value + '\n';
+            });
+            document.getElementById('SizeResult').innerText = SizeResult;
+        }
+
+
+        function getHireValue() {
+            const HireQuery = 'input[name="Hirecareer"]:checked';
+            const SelectedHire = document.querySelectorAll(HireQuery);
+
+            // 선택된 목록에서 value 찾기
+            let HireResult = '';
+            SelectedHire.forEach((el) => {
+                HireResult += el.value + '\n';
+            });
+            document.getElementById('HireResult').innerText = HireResult;
+        }
+
+
+
+
+    </script>
+
+
+    <style type="text/css">
+        #STATICMENU {
+            background-color: #f2f2f2;
+            margin: 0pt;
+            padding: 10pt 20pt;
+            position: absolute;
+            right: 10px;
+            top: 0px;
+        }
+    </style>
+
+</head>
+
+
+
+<body onload="InitializeStaticMenu()" align='center'>
+    <div class="w3-top">
+        <div class="w3-bar w3-red w3-card w3-left-align w3-large" style="opacity: 0.8">
+            <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red"
+                href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i
+                    class="fa fa-bars"></i></a>
+            <a href="/" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+            <a href="choice" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">직업찾기</a>
+            <a href="board" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">게시판</a>
+            <a href="contact" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">기업정보</a>
+            <a href="chart" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">차트</a>
+        </div>
+        <br><br><br>
+    </div>
+
+
+    <h1 style="padding: 60px 10px 10px 10px;"><strong> What kind of job do you want?</strong></h1>
+    <br>
+    <hr>
+    <div class="image-container">
+        <img src="/images/back.jpg" alt="">
+        <h2>분야</h2>
+        <br>
+        <form action="contact" method="GET" onsubmit="return CheckForm(this)">
+            <div class="checkbox">
+
+                <input type="checkbox" id="finance" name="Industry" value="Finance" onclick="getIndustryValue()"
+                    class="checkbox1">
+                <label for="finance">금융</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+
+                <input type="checkbox" id="automobile" name="Industry" value="Automobile" onclick="getIndustryValue()"
+                    class="checkbox1">
+                <label for="automobile">자동차</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                <input type="checkbox" id="medical" name="Industry" value="Medical" onclick="getIndustryValue()"
+                    class="checkbox1">
+                <label for="medical">의료</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                <input type="checkbox" id="security" name="Industry" value="Security" onclick="getIndustryValue()"
+                    class="checkbox1">
+                <label for="security">보안</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                <input type="checkbox" id="it_service" name="Industry" value="IT_Service" onclick="getIndustryValue()"
+                    class="checkbox1">
+                <label for="it_service">IT</label><br>
+            </div>
+
+
+            <br>
+            <hr><br>
+
+            <h2>전문 기술</h2>
+            <br>
+            <div class="checkbox">
+                <input type="checkbox" id="machinelearning" name="Tech_Stack" value="MachineLearning"
+                    onclick="getTechValue()" class="checkbox1">
+                <label for="machinelearning">머신러닝</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                <input type="checkbox" id="data_analysis" name="Tech_Stack" value="Data_Analysis"
+                    onclick="getTechValue()" class="checkbox1">
+                <label for="data_analysis">데이터분석</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                <input type="checkbox" id="autonomous_driving" name="Tech_Stack" value="Autonomous_Driving"
+                    onclick="getTechValue()" class="checkbox1">
+                <label for="autonomous_driving">자율주행</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                <input type="checkbox" id="image" name="Tech_Stack" value="Image" onclick="getTechValue()"
+                    class="checkbox1">
+                <label for="image">이미지</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                <input type="checkbox" id="genetic_algorithm" name="Tech_Stack" value="Genetic_Algorithm"
+                    onclick="getTechValue()" class="checkbox1">
+                <label for="genetic_algorithm">유전알고리즘</label> <br><br><br>
+                <input type="checkbox" id="cloud_security" name="Tech_Stack" value="Cloud_Security"
+                    onclick="getTechValue()" class="checkbox1">
+                <label for="cloud_security">클라우드 보안</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                <input type="checkbox" id="anti_virus" name="Tech_Stack" value="Anti_Virus" onclick="getTechValue()"
+                    class="checkbox1">
+                <label for="anti_virus">안티바이러스</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                <input type="checkbox" id="platform" name="Tech_Stack" value="Platform" onclick="getTechValue()"
+                    class="checkbox1">
+                <label for="platform">플랫폼</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                <input type="checkbox" id="applications" name="Tech_Stack" value="Applications" onclick="getTechValue()"
+                    class="checkbox1">
+                <label for="applications">앱</label><br>
+            </div>
+
+            <br>
+            <hr><br>
+
+            <h2>연봉</h2>
+            <br>
+            <div class="checkbox">
+                <input type="checkbox" id="three" name="Salary" value="Three" onclick="getSalaryValue()"
+                    class="checkbox1">
+                <label for="three">3000만 ~ 4000만</label> <br><br>
+                <input type="checkbox" id="four" name="Salary" value="Four" onclick="getSalaryValue()"
+                    class="checkbox1">
+                <label for="four">4000만 ~ 5000만</label><br><br>
+                <input type="checkbox" id="five" name="Salary" value="Five" onclick="getSalaryValue()"
+                    class="checkbox1">
+                <label for="five">5000만 ~ 6000만</label><br><br>
+                <input type="checkbox" id="more" name="Salary" value="More" onclick="getSalaryValue()"
+                    class="checkbox1">
+                <label for="more">그 이상</label><br>
+            </div>
+            <br>
+            <hr><br>
+
+            <h2>규모</h2>
+            <br>
+            <div class="checkbox">
+                <input type="checkbox" id="big" name="Company_Size" value="Big" onclick="getSizeValue()"
+                    class="checkbox1">
+                <label for="big">대기업</label> <br><br>
+                <input type="checkbox" id="medium" name="Company_Size" value="Medium" onclick="getSizeValue()"
+                    class="checkbox1">
+                <label for="medium">중견기업</label><br><br>
+                <input type="checkbox" id="small" name="Company_Size" value="Small" onclick="getSizeValue()"
+                    class="checkbox1">
+                <label for="small">중소기업</label><br>
+            </div>
+            <br>
+            <hr><br>
+
+            <h2>모집 기준</h2>
+            <br>
+            <div class="checkbox">
+                <input type="checkbox" id="newcomer" name="Hirecareer" value="Newcomer" onclick="getHireValue()"
+                    class="checkbox1">
+                <label for="newcomer">신입</label> <br><br>
+                <input type="checkbox" id="experience" name="Hirecareer" value="Experience" onclick="getHireValue()"
+                    class="checkbox1">
+                <label for="experience">경력</label><br>
+            </div>
+            <br><br>
+
+            <!-- <input type="submit" value="두근두근 나의 회사는?"> -->
+            <!-- <button class="button" type="submit">두근두근 나의 회사는?</button>-->
+            <button class="button" style="vertical-align:middle" type="submit"><span> 두근두근 나의 회사는? </span></button>
+        </form>
+        <br>
+        <form action="board" method="get">
+
+            <button class="button" style="vertical-align:middle"><span>게시판이동</span></button>
+        </form>
+
+        <br><br>
+
+        <div class="col-25" id="STATICMENU">
+            <p>
+            <h4>Industry</h4>
+            </p>
+            <div id="IndustryResult" style="font-size: 13px;">
+            </div>
+
+            <p>
+            <h4>Tech Stack</h4>
+            </p>
+            <div id="TechResult" style="font-size: 13px;">
+            </div>
+
+            <p>
+            <h4>Salary</h4>
+            </p>
+            <div id="SalaryResult" style="font-size: 13px;">
+            </div>
+
+            <p>
+            <h4>Company Size</h4>
+            </p>
+            <div id="SizeResult" style="font-size: 13px;">
+            </div>
+
+            <p>
+            <h4>Hirecareer</h4>
+            </p>
+            <div id="HireResult" style="font-size: 13px;">
+            </div>
+
+        </div>
+
+
+
+</body>
+
+</html>
